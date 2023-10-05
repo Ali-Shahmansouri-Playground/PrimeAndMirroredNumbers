@@ -13,6 +13,7 @@ if (rangeStart > rangeEnd)
 if (requestCode == 1)
 {
     Console.WriteLine($"\nPrime Numbers between {rangeStart} and {rangeEnd}: ");
+
     for (int i = rangeStart; i <= rangeEnd; i++)
     {
         if (IsPrime(i) && i >= 2) Console.WriteLine(i);
@@ -22,7 +23,14 @@ if (requestCode == 1)
 //Find MirroredNumbers
 else
 {
+    Console.WriteLine($"\nMirrored Numbers between {rangeStart} and {rangeEnd}: ");
 
+    for (int i = rangeStart; i <= rangeEnd; i++)
+    {
+        // 10 <= i ? Single Digit numbers are not considered as mirrored
+        if (i.ToString().Equals(new string(i.ToString().Reverse().ToArray())) && 10 <= i)
+            Console.WriteLine(i);
+    }
 }
 
 int GetRequestCode()
